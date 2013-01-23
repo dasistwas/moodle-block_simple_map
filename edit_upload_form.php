@@ -104,6 +104,8 @@ if ($formdata = $mform->get_data()) {
 
 echo get_string('upload_instructions', 'block_simple_map').'
 <br /><br />
+<a href="export_table.php?sesskey='.sesskey().'&example=true">Download sample csv file (first line only)</a>
+<br />
 <a href="export_table.php?sesskey='.sesskey().'">'.get_string('download_instructions', 'block_simple_map')."</a>";
 
 //load all the records from the database and display them in a table
@@ -111,7 +113,13 @@ echo get_string('upload_instructions', 'block_simple_map').'
 //$results = $DB->delete_records($table);
 $results = $DB->get_records($table);
 
-echo '<table id="block_simple_map_editentries" border="1"><tr><th>ID</th><th>title</th><th class="large">Description</th><th>Opening_hours</th><th>Address</th><th>City</th><th>Area_code</th><th>Country</th><th>Region</th><th>Latitude</th><th>Longitude</th><th>Category</th><th>Link 1</th><th>Link 2</th><th>Link 3</th><th>Link 4</th><th>Link 5</th><th>Contact</th><th><a href="delete_record.php?id=-2&sesskey='.sesskey().'">Delete all</a></th></tr>';
+echo '<table id="block_simple_map_editentries" border="1"><tr>
+<th>ID</th>
+<th>Title and description, etc.</th>
+<th>
+<a href="delete_record.php?id=-2&sesskey='.sesskey().'">Delete all</a>
+</th>
+</tr>';
 foreach ($results as $result) {
 
 	$class = "";
@@ -130,24 +138,19 @@ foreach ($results as $result) {
 	}
 
 	echo '<tr '.$class.'>';
-	echo '<td><a href="edit_record.php?id='.$result->id.'&sesskey='.sesskey().'">'.$result->id.'</a></td>
-	<td>'.$result->title.'</td>
-	<td>'.$result->description.'</td>
-	<td>'.$result->opening_hours.'</td>
-	<td>'.$result->address.'</td>
-	<td>'.$result->city.'</td>
-	<td>'.$result->area_code.'</td>
-	<td>'.$result->country.'</td>
-	<td>'.$result->region.'</td>
-	<td>'.$result->lat.'</td>
-	<td>'.$result->lng.'</td>
-	<td>'.$result->category.'</td>
-	<td>'.$result->link_1.'</td>
-	<td>'.$result->link_2.'</td>
-	<td>'.$result->link_3.'</td>
-	<td>'.$result->link_4.'</td>
-	<td>'.$result->link_5.'</td>
-	<td>'.$result->contact.'</td>
+	echo '
+	<td><a href="edit_record.php?id='.$result->id.'&sesskey='.sesskey().'">'.$result->id.' edit</a></td>
+	<td><div style="font-weight: bold;">Title: '.$result->title.'</div><div>'.$result->description.'</div>
+	<div>'.$result->opening_hours.'</div>
+	<div>'.$result->address.'<br />'.$result->city.'<br />'.$result->area_code.'<br />'.$result->country.'<br />'.$result->region.'</div>
+	<div>'.$result->lat.', '.$result->lng.'</div>
+	<div>'.$result->category.'</div>
+	<div>'.$result->link_1.'</div>
+	<div>'.$result->link_2.'</div>
+	<div>'.$result->link_3.'</div>
+	<div>'.$result->link_4.'</div>
+	<div>'.$result->link_5.'</div>
+	<div>'.$result->contact.'</div></td>
 	<td><a href="delete_record.php?id='.$result->id.'&sesskey='.sesskey().'">delete</a></td>';
 	echo '</tr>';
 }

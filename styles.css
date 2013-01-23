@@ -101,18 +101,16 @@ ul.autocomplete li a{
 
 table#block_simple_map_editentries{
     border: 1px solid black;
-    table-layout: fixed;
-    width: 100%;
+    width: auto;
     font-size: 1;
 }
 
 table#block_simple_map_editentries th, table#block_simple_map_editentries td {
     border: 1px solid black;
     overflow: hidden;
-    width: 30px;
 }
 table#block_simple_map_editentries th.large {
-	width: 120px;
+	min-width: 120px;
 }
 
 

@@ -3,6 +3,8 @@
 
 // to display as moodle page
 require_once dirname(__FILE__)."/../../config.php";
+$example = optional_param('example', false, PARAM_BOOL);
+
 require_login();
 confirm_sesskey();
 $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
@@ -11,10 +13,10 @@ require_capability('moodle/site:config', $context);
 $table = "block_simple_map_places";
 
 $results = $DB->get_records($table);
-if(!empty($results)){
+if(!empty($results) && !$example){
 	$new_array = array_to_csv($results);
-} else {
-	$new_array = array_to_csv(array( '0' => array('title' => 'enter your title here (ex: name of the library, our the name of the location', 'Description' => 'enter description here',	'Opening_hours' => 'opening hours',	'Address' => 'address',	'City' => 'city',	'Area_code'	=> 'area code', 'Country' => 'Austria',	'Region' => 'Vienna',	'Latitude' =>'latitude (leave empty if unknown)',	'Longitude'=>'longiude (leave empty if unknown)','Category' =>'category (not yet implemented, leave empty)','Link 1'=>'http://www.yourlinkg.org',	'Link 2' =>'', 'Link 2'=>'optional link 2', 'Link 3'=>'optional link 3', 'Link 4'=>'optional link 4', 'Link 5'=>'optional link 5',  'Contact' =>'contact information')));
+} else if ($example || !empty($results)) {
+	$new_array = array_to_csv(array( '0' => array('title' => 'enter your title here (ex: name of the library, our the name of the location', 'Description' => 'enter description here (optional)',	'Opening_hours' => 'opening hours (optional)',	'Address' => 'address',	'City' => 'city',	'Area_code'	=> 'area code', 'Country' => 'Austria',	'Region' => 'Vienna (optional)',	'Latitude' =>'latitude (leave empty if unknown)',	'Longitude'=>'longiude (leave empty if unknown)','Category' =>'category  (optional)','Link 1'=>'http://www.yourlinkg.org',	'Link 2'=>'optional link 2', 'Link 3'=>'optional link 3', 'Link 4'=>'optional link 4', 'Link 5'=>'optional link 5',  'Contact' =>'contact information (optional)')));
 }
 
 header("Content-type: text/csv; charset=UTF-8");

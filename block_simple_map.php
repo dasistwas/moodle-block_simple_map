@@ -85,7 +85,7 @@ public function get_content() {
     <form action="">
     	<p>'.str_replace("SMap_Places", $category_of_places, get_string('find_places_near_you', 'block_simple_map')).'</p>
     	<p>'.get_string('enter_address', 'block_simple_map').'</p>
-    	<div><input type="text" id="address" size="20" /></div>
+    	<div><input type="text" id="address" size="18" style="width: auto;" /></div>
     	<p>'.get_string('set_distance', 'block_simple_map').'</p>
 		<div><select id="distance">
 			<option value="1000">1km</option>
