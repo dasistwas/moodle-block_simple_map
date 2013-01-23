@@ -1,0 +1,121 @@
+#s_map *{
+    	font-family: verdana;
+        font-size: 12px;
+        color: black;
+	}
+#s_map body{
+        text-align:center;
+	}
+#s_map	.gmap3{
+        width: 10;
+        height: 10;
+	}
+#s_map	.ui-menu .ui-menu-item{
+        text-align: left;  
+        font-weight: normal;
+	}
+#s_map .ui-menu .ui-menu-item a.ui-state-hover{
+        border: 1px solid red; 
+        background: #FFBFBF; 
+        color: black;
+        font-weight:bold;
+    }
+      
+#s_map 	#simple_map { 
+		width:100%-200px;
+		height:700px;
+		font-size: 12px;
+		border: 1px dashed #C0C0C0;
+	}
+#s_map 	#gmap3_map {
+		width:10px;
+		height:10px;
+	}
+#s_map 	.gmap3{
+		display:none
+	}
+#s_map 	h4 {
+		font-size: 14px;
+	}
+#s_map 	#list {
+		float:left;
+		width:200px;
+		height: 650px;
+		overflow-y: scroll;
+		background:#eee;
+		list-style:none;
+		padding:0;
+		font-size: 12px;
+	}
+#s_map 	#list li {
+		padding:10px;
+	}
+#s_map 	#list li:hover {
+		background:#555;
+		color:#fff;
+		cursor:pointer;
+		cursor:hand;
+	}
+
+
+ul.autocomplete {
+  display:block;
+  margin: 0;
+  padding: 2px;
+  -moz-border-radius: 2px; 
+  -webkit-border-radius: 2px; 
+  border-radius: 2px;
+  background-color:grey;
+  border: 1px solid #DDDDDD;
+  max-height: 200px;
+  overflow-y: scroll;
+  text-align:left;
+  z-index:9999;
+  
+}
+ul.autocomplete li{
+  padding: 0;
+  cursor:default;
+  border:1px solid #EEEEEE;
+  -moz-border-radius: 4px; 
+  -webkit-border-radius: 4px; 
+  border-radius: 4px;
+  list-style: none outside none;
+}
+ul.autocomplete li.hover{
+  color: black;
+  border:1px solid #FFA5A5;
+  background-color:#FFE0E0;
+}
+ul.autocomplete li a{
+  display:block;
+  cursor:default;
+  width:100%;
+  text-decoration: none;
+  outline: medium none;
+  -moz-border-radius: 4px; 
+  -webkit-border-radius: 4px; 
+  border-radius: 4px;
+  color: black;
+}
+
+table#block_simple_map_editentries{
+    border: 1px solid black;
+    table-layout: fixed;
+    width: 100%;
+    font-size: 1;
+}
+
+table#block_simple_map_editentries th, table#block_simple_map_editentries td {
+    border: 1px solid black;
+    overflow: hidden;
+    width: 30px;
+}
+table#block_simple_map_editentries th.large {
+	width: 120px;
+}
+
+
+table#block_simple_map_editentries tr.red {
+	background: red;
+}
