@@ -22,7 +22,7 @@ class block_simple_map_edit_form extends block_edit_form {
  	// A sample string variable with a default value.
     	$mform->addElement('text', 'config_title', get_string('blocktitle', 'block_simple_map'));
     	$mform->setDefault('config_title', 'default value');
-    	$mform->setType('config_title', PARAM_ALPHANUM);
+    	$mform->setType('config_title', PARAM_TEXT);
  
  
         // A sample string variable with a default value.

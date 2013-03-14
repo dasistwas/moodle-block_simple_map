@@ -138,7 +138,7 @@ class edit_record_form extends moodleform {
     		
     		$mform->addElement('text', 'title', get_string('title', 'block_simple_map'));
     		$mform->setDefault('title', $result->title);
-    		$mform->setType('title', PARAM_ALPHANUM);
+    		$mform->setType('title', PARAM_TEXT);
     		
     		$mform->addElement('editor', 'description', get_string('description', 'block_simple_map'), 
     			null,
@@ -157,11 +157,11 @@ class edit_record_form extends moodleform {
     		
     		$mform->addElement('text', 'city', get_string('city', 'block_simple_map'));
     		$mform->setDefault('city', $result->city);
-    		$mform->setType('city', PARAM_ALPHANUM);
+    		$mform->setType('city', PARAM_TEXT);
     		
     		$mform->addElement('text', 'area_code', get_string('area_code', 'block_simple_map'));
     		$mform->setDefault('area_code', $result->area_code);
-    		$mform->setType('area_code', PARAM_ALPHANUM);
+    		$mform->setType('area_code', PARAM_TEXT);
     		
     		$mform->addElement('text', 'country', get_string('country', 'block_simple_map'));
     		$mform->setDefault('country', $result->country);
