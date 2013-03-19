@@ -32,7 +32,7 @@ class block_simple_map_edit_form extends block_edit_form {
         
         $mform->addElement('text', 'config_category_of_places', get_string('category_of_places', 'block_simple_map'));
         $mform->setDefault('config_category_of_places', 'default value');
-        $mform->setType('config_category_of_places', PARAM_TEXt);
+        $mform->setType('config_category_of_places', PARAM_TEXT);
         
         $mform->addElement('text', 'config_limit_search', get_string('limit_search', 'block_simple_map'));
         $mform->setDefault('config_limit_search', 'default value');
