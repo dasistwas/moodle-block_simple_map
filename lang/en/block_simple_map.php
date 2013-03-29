@@ -1,7 +1,8 @@
 <?php
-    $string['pluginname'] = 'Simple map';
-    $string['simple_map'] = 'Simple map';
-    $string['blocktitle'] = 'Block Title';
+    $string['pluginname'] = 'Simple Map';
+    $string['simple_map'] = 'Simple Map';
+    $string['simple_map:addinstance'] = 'Add new Simple Map block';
+    $string['blocktitle'] = 'Block title';
     $string['googleAPIkey'] = 'Google API Key';
     $string['limit_search'] = 'Restrict search to this country';
     $string['attachment'] = 'Attachment';

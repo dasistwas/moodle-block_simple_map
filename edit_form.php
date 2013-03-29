@@ -3,9 +3,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 
-require_once('blocks/simple_map/upload_form.php');
-require_once $CFG->libdir.'/formslib.php';
-require_once($CFG->libdir . '/csvlib.class.php');
+require_once dirname(__FILE__) . '/blocks/simple_map/upload_form.php';
+require_once $CFG->libdir . '/formslib.php';
+require_once $CFG->libdir . '/csvlib.class.php';
 
 
 $returnurl = new moodle_url('/blocks/simple_map/edit_form.php');

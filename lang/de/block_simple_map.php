@@ -1,6 +1,7 @@
 <?php
     $string['pluginname'] = 'Einfache Kartensuche';
     $string['simple_map'] = 'Simple map';
+    $string['simple_map:addinstance'] = 'Neuen Simple Map Block anlegen';
     $string['blocktitle'] = 'Blocktitel';
     $string['googleAPIkey'] = 'Google API Key';
     $string['limit_search'] = 'Suche auf dieses Land einschränken';
