@@ -100,8 +100,7 @@ public function get_content() {
    $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
    
    $this->content         =  new stdClass;
-   if (has_capability('moodle/site:config', $context)) {
-
+   if (has_capability('moodle/site:manageblocks', $context)) {
             $this->content->text = '';
             $this->content->text   = $data;
             $this->content->text.= '<a title="configuration" href="' . $CFG->wwwroot . '/blocks/simple_map/edit_upload_form.php">' . get_string('upload_form', 'block_simple_map') . '</a>';
