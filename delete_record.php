@@ -8,7 +8,7 @@ confirm_sesskey();
 
 require_login();
 $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
-require_capability('moodle/site:config', $context);
+require_capability('moodle/site:manageblocks', $context);
 
 // the name of the table in the database
 $table = 'block_simple_map_places';

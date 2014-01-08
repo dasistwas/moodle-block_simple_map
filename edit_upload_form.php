@@ -11,7 +11,7 @@ require_once('upload_form.php');
 
 require_login();
 $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
-require_capability('moodle/site:config', $context);
+require_capability('moodle/site:manageblocks', $context);
 
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url('/blocks/simple_map/edit_upload_form.php');

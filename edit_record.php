@@ -14,7 +14,7 @@ confirm_sesskey();
 $url = new moodle_url('/blocks/simple_map/edit_record.php', array('id'=>$id));
 require_login();
 $context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
-require_capability('moodle/site:config', $context);
+require_capability('moodle/site:manageblocks', $context);
 
 $PAGE->set_url($url);
 $PAGE->set_context(context_system::instance());
