@@ -3,7 +3,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 
-require_once dirname(__FILE__) . '/blocks/simple_map/upload_form.php';
+require_once $CFG->dirroot . '/blocks/simple_map/upload_form.php';
 require_once $CFG->libdir . '/formslib.php';
 require_once $CFG->libdir . '/csvlib.class.php';
 

@@ -6,7 +6,7 @@ require_once dirname(__FILE__)."/../../config.php";
 require_once($CFG->libdir.'/csvlib.class.php');
 
 //here we store the form to upload the csv file
-require_once('upload_form.php');
+require_once($CFG->dirroot.'/blocks/simple_map/upload_form.php');
 
 $id         = required_param('id', PARAM_INT);
 confirm_sesskey();
