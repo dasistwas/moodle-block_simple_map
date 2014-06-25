@@ -87,9 +87,9 @@ if ($formdata = $mform->get_data()) {
 		else {
 			// First we check, if the Geo-Coordinates are already submitted. If not, we fetch them now, if there is an address to do so
 			if ($place->address && !$place->lat && !$place->lng) {
-				$object = get_lat_lng_by_address($place->address, $place->city, $place->country, $table);
-				$place->lat = $object['lat'];
-				$place->lng = $object['long'];
+				$object = get_lat_lng_by_address($place->address, $place->city, $place->country);
+				$place->lat = $object->lat;
+				$place->lng = $object->lng;
 			}
 
 			$lines_in_database++;
@@ -125,13 +125,13 @@ foreach ($results as $result) {
 	$class = "";
 	//before we display the list, we check once again if there are the geo-coordinates available:
 	if ($result->address && !$result->lat && !$result->lng) {
-		$object = get_lat_lng_by_address($result->address, $result->city, $result->country, $table);
+		$object = get_lat_lng_by_address($result->address, $result->city, $result->country);
 		if (!$object) {
 			$class = "class ='red'";
 		}
 		else {
-			$result->lat = $object['lat'];
-			$result->lng = $object['long'];
+			$result->lat = $object->lat;
+			$result->lng = $object->lng;
 			// and we update the database
 			$DB->update_record($table, $result, $bulk=false);
 		}

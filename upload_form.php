@@ -216,26 +216,18 @@ class edit_record_form extends moodleform {
     }     
 }
 
-function get_lat_lng_by_address($address, $city, $country, $table) {
-
-	require_once(dirname(__FILE__) . '/googlehelper/class.googleHelper.php');
-	
+function get_lat_lng_by_address($address, $city, $country) {
 	global $CFG, $DB;
 	
-	//now it is a bit complicated to access the config data from here
-	$instance = $DB->get_record('block_instances', array('blockname' => 'simple_map'), '*', MUST_EXIST); 
-	$block_simple_map = block_instance('simple_map', $instance);	
-	
-	if ($apiKey = $block_simple_map->config->googleAPIkey) {
-
-		//init our object
-		$obj = new googleHelper($apiKey);
- 
-		//get coordinates and print the debug info
-		$check_address = ' '.$address.', '.$city.', '.$country.' ';
-	
-		$object = $obj->getCoordinates($check_address);
-		return $object;
-	}
-	
+	$formataddress = urlencode("$address $city, $country");
+	$geocode=file_get_contents('http://maps.google.com/maps/api/geocode/json?address='.$formataddress.'&sensor=false');
+	$jsondata = json_decode($geocode,true);
+	$data = new stdClass();
+    $data->lat = $jsondata['results'][0]['geometry']['location']['lat'];
+    $data->lng = $jsondata['results'][0]['geometry']['location']['lng'];
+    if(is_numeric($data->lat) && is_numeric($data->lng)){
+        return $data;
+    } else {
+        return false;
+    } 	
 }

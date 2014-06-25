@@ -46,10 +46,9 @@ if ($formdata = $mform->get_data()) {
 	
 	
 	if ($formdata->address && !$formdata->lat && !$formdata->lng && $formdata->fetch_geo_codes) {
-		
 		$maps_object = get_lat_lng_by_address($formdata->address, $formdata->city, $formdata->country, $table);
-		$formdata->lat = $maps_object['lat'];
-		$formdata->lng = $maps_object['long'];
+		$formdata->lat = $maps_object->lat;
+		$formdata->lng = $maps_object->lng;
 	}
 	
 	unset($formdata->fetch_geo_codes);
