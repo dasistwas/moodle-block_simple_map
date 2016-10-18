@@ -21,9 +21,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-    $plugin->version = 2014062500;  // YYYYMMDDHH (year, month, day, 24-hr time)
-    $plugin->requires = 2013051400; // YYYYMMDDHH (This is the release version for Moodle 2.0)
-    $plugin->release = '1.1 Build: 2014062500';
+    $plugin->version = 2016101800;  // YYYYMMDDHH (year, month, day, 24-hr time)
+    $plugin->requires = 2016051900; // YYYYMMDDHH (This is the release version for Moodle 2.0)
+    $plugin->release = 'Kopernikus'; // Entdecker
     $plugin->component = 'block_simple_map';  // Full name of the plugin (used for diagnostics)
     $plugin->maturity = MATURITY_STABLE;
 ?>

@@ -7,7 +7,7 @@ $id = required_param('id', PARAM_INT);
 confirm_sesskey();
 
 require_login();
-$context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+$context = context_course::instance($COURSE->id);
 require_capability('moodle/site:manageblocks', $context);
 
 // the name of the table in the database

@@ -10,7 +10,7 @@ require_once($CFG->libdir.'/csvlib.class.php');
 require_once('upload_form.php');
 
 require_login();
-$context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+$context = context_course::instance($COURSE->id);
 require_capability('moodle/site:manageblocks', $context);
 
 $PAGE->set_context(context_system::instance());
@@ -20,11 +20,11 @@ $place = new stdClass();
 
 // the name of the table in the database
 $table = 'block_simple_map_places';
+$PAGE->set_title(format_string(get_string('upload_form','block_simple_map')));
+$PAGE->set_heading(get_string('upload_form','block_simple_map'));
+$PAGE->navbar->add("View list of places");
 
-$navlinks[] = array('name' => "View list of places", 'link' => null, 'type' => 'misc');
-
-$navigation = build_navigation($navlinks);
-print_header_simple("simple_map", $COURSE->fullname, $navigation, "", "", true);
+echo $OUTPUT->header();
 
 $mform = new select_file_form();
 

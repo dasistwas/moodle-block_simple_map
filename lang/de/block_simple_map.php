@@ -4,6 +4,7 @@
     $string['simple_map:addinstance'] = 'Neuen Simple Map Block anlegen';
     $string['blocktitle'] = 'Blocktitel';
     $string['googleAPIkey'] = 'Google API Key';
+    $string['googleAPIkeydesc'] = 'Google API Key zu beziehen unter https://developers.google.com/maps/documentation/javascript/get-api-key';
     $string['limit_search'] = 'Suche auf dieses Land einschränken';
     
     $string['attachment'] = 'Anhang';

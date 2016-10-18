@@ -13,7 +13,7 @@ confirm_sesskey();
 
 $url = new moodle_url('/blocks/simple_map/edit_record.php', array('id'=>$id));
 require_login();
-$context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+$context = context_course::instance($COURSE->id);
 require_capability('moodle/site:manageblocks', $context);
 
 $PAGE->set_url($url);
@@ -26,10 +26,7 @@ $place = new stdClass();
 // the name of the table in the database
 $table = 'block_simple_map_places';
 
-$navlinks[] = array('name' => "Edit records", 'link' => null, 'type' => 'misc');
-
-$navigation = build_navigation($navlinks);
-
+$PAGE->navbar->add("Edit records");
 
 // get a new form object;
 $mform = new edit_record_form(null, array('id'=>$id, 'table'=>$table));
@@ -68,7 +65,7 @@ if ($formdata = $mform->get_data()) {
 	
 }
 else {
-	print_header_simple("simple_map", $COURSE->fullname, $navigation, "", "", true);
+    echo $OUTPUT->header();
 	$mform->display();
 }
 // print_object($mform);

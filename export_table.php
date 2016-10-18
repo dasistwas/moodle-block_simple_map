@@ -7,7 +7,7 @@ $example = optional_param('example', false, PARAM_BOOL);
 
 require_login();
 confirm_sesskey();
-$context = get_context_instance(CONTEXT_COURSE, $COURSE->id);
+$context = context_course::instance($COURSE->id);
 require_capability('moodle/site:manageblocks', $context);
 
 $table = "block_simple_map_places";

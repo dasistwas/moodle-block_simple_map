@@ -132,24 +132,9 @@ $content = '
     </div>
     </div>';
 
+	$PAGE->navbar->add(get_string("simple_map", "block_simple_map"));
 
-
-render_page($content);
-
-
-function render_page ($content) {
-
-	global $COURSE, $OUTPUT;
-
-	$navlinks[] = array('name' => get_string("simple_map", "block_simple_map"), 'link' => null, 'type' => 'misc');
-
-	$navigation = build_navigation($navlinks);
-	print_header_simple("simple_map", $COURSE->fullname, $navigation, "", "", true);
-
-	echo $OUTPUT->lang_menu();
+    echo $OUTPUT->header();	
 	echo $OUTPUT->box($content);
 	echo $OUTPUT->footer();
-
-}
-
 ?>
