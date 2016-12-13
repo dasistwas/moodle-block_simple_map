@@ -108,15 +108,16 @@ class block_simple_map extends block_base {
         if (has_capability('moodle/site:manageblocks', $context)) {
             $this->content->text = '';
             $this->content->text = $data;
+            if (empty($googleAPIkey)) {
+            	$this->content->text .= html_writer::div('Google API key must be specified in the admin settings for the plugin',"alert alert-error");
+            }
             $this->content->text .= '<a title="configuration" href="' . $CFG->wwwroot .
                      '/blocks/simple_map/edit_upload_form.php">' .
                      get_string('upload_form', 'block_simple_map') . '</a>';
             $this->content->footer = '';
+            
         } else {
             $this->content->text = $data;
-            if (empty($googleAPIkey)) {
-                $this->content->text .= $OUTPUT->early_error_content('Google API key must be specified in the admin settings for the plugin');
-            }
             $this->content->footer = '';
         }
         
